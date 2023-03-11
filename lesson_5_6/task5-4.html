@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__4</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 4.</h1>
+        <h2 class="task__description">
+          Вивести таблицю з 3 рядків та 7 стовпців
+        </h2>
+      </div>
+
+      <script>
+        document.write(`<table> <tbody>`);
+        // row
+        for (let i = 0; i < 3; i++) {
+          document.write(`<tr>`);
+          // column
+          for (let j = 1; j <= 7; j++) {
+            document.write(`<td>${j}</td>`);
+          }
+          document.write(`</tr>`);
+        }
+        document.write(`</tbody> </table>`);
+      </script>
+    </main>
+  </body>
+</html>

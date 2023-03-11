@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__6</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 6.</h1>
+        <h2 class="task__description">
+          Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній).
+        </h2>
+      </div>
+
+      <script>
+        let counter = 1;
+        document.write(`<div class='three__table'>`);
+        for (let table = 1; table <= 3; table++) {
+          document.write(`<table>`);
+          for (let tr = 1; tr <= 3; tr++) {
+            document.write(`<tr>`);
+            for (let td = 1; td <= 3; td++) {
+              document.write(`<td>${counter}</td>`);
+              counter++;
+            }
+            document.write(`</tr>`);
+          }
+          document.write(`</table>`);
+        }
+        document.write(`</div>`);
+      </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__13</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 13.</h1>
+        <h2 class="task__description">
+          Морський бій. Комп’ютер випадково розташовує одиночний корабель на
+          полі розміром N*M. Маючи К снарядів користувач намагається потопити
+          корабель.
+        </h2>
+      </div>
+
+      <script>
+        const randomShotX = 1 + Math.floor(Math.random() * (10 - 0) + 1);
+        const randomShotY = 1 + Math.floor(Math.random() * (10 - 0) + 1);
+        console.log(`X = ${randomShotX}, Y=${randomShotY}`);
+
+        let i = 0;
+        let userFirstShot;
+        let userSecondShot;
+        do {
+          userFirstShot = parseInt(
+            prompt(
+              `Щоб влучити в корабель ви маєте 3 спроби. Введіть координати X  від 1 - 10 для пострілу. Зараз ви використали ${i} снарядів з трьох. `
+            )
+          );
+          userSecondShot = parseInt(
+            prompt(
+              `Введіть координати Y від 1 - 10 для пострілу.  Зараз ви використали ${i} снарядів з трьох.`
+            )
+          );
+          if (randomShotX == userFirstShot && randomShotY == userSecondShot) {
+            alert(`WIN`);
+            break;
+          }
+          i++;
+        } while (i < 3);
+      </script>
+    </main>
+  </body>
+</html>
+
+let balanseOfMoney = 500 do { let userMoney = parseFloat(prompt(`Ви повинні
+сплатити ${balanseOfMoney} грн ведіть суму, яку ви вносите`)) balanseOfMoney -=
+userMoney } while (balanseOfMoney > 0); if (sumDifference === 0)
+document.write("Congrats, thats all!"); else document.write(`Thanks, take
+${-sumDifference} $ change`); let totalSum = 1 + Math.floor(Math.random() *
+300); let userSum = 0; let sumDifference = totalSum; do { userSum = parseFloat(
+prompt( `The amount left to pay is ${sumDifference}, how mush would you like to
+pay now`, "0" ) ); sumDifference = totalSum - userSum; totalSum -= userSum; }
+while (sumDifference > 0); if (sumDifference === 0) document.write("Congrats,
+thats all!"); else document.write(`Thanks, take ${-sumDifference} $ change`);

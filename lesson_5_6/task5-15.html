@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__15</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 15.</h1>
+        <h2 class="task__description">
+          Користувач поступово вводить показники температури протягом року.
+          Знайти середню температуру.
+        </h2>
+      </div>
+
+      <script>
+        let monthSum = 0;
+        let sumTemperature = 0;
+        let averageTemperature = 0;
+
+        for (let i = 1; i <= 12; i++) {
+          let userTemperature = parseFloat(
+            prompt(`Bведіть показники температури за ${i} місяць`)
+          );
+          if (isNaN(userTemperature)) {
+            averageTemperature = sumTemperature / monthSum;
+            alert(
+              `Середнє значення температури за ${monthSum} місяця(-ів) = ${averageTemperature}`
+            );
+            break;
+          }
+          monthSum++;
+          sumTemperature += userTemperature;
+        }
+        averageTemperature = sumTemperature / monthSum;
+        alert(
+          `Середнє значення температури за ${monthSum} місяця(-ів) = ${averageTemperature}`
+        );
+      </script>
+    </main>
+  </body>
+</html>
