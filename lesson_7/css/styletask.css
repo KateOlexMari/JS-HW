@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+
+body {
+  background: rgba(141, 135, 169, 0.95);
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  line-height: 2;
+  padding-left: 100px;
+}
+
+main {
+  font-size: 24px;
+  padding: 100px 15px 0px 15px;
+}
+
+.task__nummer {
+  color: #ffffff;
+}
+
+.answer {
+  color: #ffffff;
+}
+
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+table {
+  border: 2px solid black;
+}
+
+.three__table {
+  display: flex;
+  gap: 20px;
+}
+
+h1 {
+  color: rgb(3, 0, 163);
+}
+
+.border {
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.54);
+}
+
+.feest {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.54);
+  text-align: center;
+  font-size: 100px;
+}
+
+.jackpots {
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.54);
+}

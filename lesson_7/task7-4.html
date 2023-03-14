@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__4</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 4.</h1>
+        <h2 class="task__description">
+          Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
+          результатів: кількість парних, кількість додатних, кількість більших
+          за 100.
+        </h2>
+      </div>
+
+      <script>
+        function getEven(item) {
+          if (item % 2 === 0) return 1;
+          else return 0;
+        }
+
+        function getPositive(item) {
+          if (item > 0) return 1;
+          else return 0;
+        }
+
+        function getMore_100(item) {
+          if (item > 100) return 1;
+          else return 0;
+        }
+
+        function getResults(a, b, c) {
+          let quantityEvenNumber = getEven(a) + getEven(b) + getEven(c);
+          let quantityPositiveNumber =
+            getPositive(a) + getPositive(b) + getPositive(c);
+          let quantityMoreNumber =
+            getMore_100(a) + getMore_100(b) + getMore_100(c);
+
+          return document.write(`Кількість парних чисел = ${quantityEvenNumber}<br>
+			Кількість додатніх чисел = ${quantityPositiveNumber}<br>
+			Кількість чисел більших за 100 = ${quantityMoreNumber}`);
+        }
+
+        // Користувач вводить чотири числа
+
+        const userNumber1 = parseFloat(
+          prompt("Введіть значення першого числа")
+        );
+        const userNumber2 = parseFloat(
+          prompt("Введіть значення другого числа")
+        );
+        const userNumber3 = parseFloat(
+          prompt("Введіть значення третього числа")
+        );
+        getResults(userNumber1, userNumber2, userNumber3);
+      </script>
+    </main>
+  </body>
+</html>

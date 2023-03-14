@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__6</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 6.</h1>
+        <h2 class="task__description">
+          Створити функцію, яка створює таблицю з вказаною кількістю рядків і
+          стовпців (таблиця заповнюється заданим фіксованим повідомленням).
+        </h2>
+      </div>
+
+      <script>
+        const userColumnNumber = parseInt(prompt("Введіть кількість рядків"));
+        const userRowNumber = parseInt(prompt("Введіть кількість стовбців"));
+
+        function createTable(a, b) {
+          document.write("<table>");
+          for (let j = 0; j < a; j++) {
+            document.write("<tr>");
+            for (let i = 0; i < b; i++) {
+              document.write(`<td> cell </td>`);
+            }
+            document.write("</tr>");
+          }
+          document.write("</table>");
+        }
+
+        const resultTable = createTable(userColumnNumber, userRowNumber);
+      </script>
+    </main>
+  </body>
+</html>

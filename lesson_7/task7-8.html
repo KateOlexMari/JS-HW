@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__8</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 8.</h1>
+        <h2 class="task__description">
+          Створити функцію, яка виводить банер (у функцію передаються:
+          зображення, заголовок та посилання, куди переходимо при кліку на
+          зображення (тег img повине знаходитись у середині тега a.
+        </h2>
+      </div>
+
+      <script>
+        const titleBunner = prompt(
+          "Введіть заголовок для баннера:",
+          "Кращі історії розповідають за чашкою кави!"
+        );
+        const imagePath = prompt("Введіть шлях до картинки:", "img/5.jpeg");
+        const linkBunner = prompt(
+          "Введіть посилання:",
+          "https://www.svitkavy.com/uk/"
+        );
+
+        printBunner(titleBunner, imagePath, linkBunner);
+
+        function printBunner(arg1, arg2, arg3) {
+          document.write(`
+				<h1>${arg1}</h1>
+				<a href="${arg3}"><img src="${arg2}" width="100"></a>
+			`);
+        }
+      </script>
+    </main>
+  </body>
+</html>

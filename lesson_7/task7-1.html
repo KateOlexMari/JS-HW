@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__1</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 1.</h1>
+        <h2 class="task__description">
+          Створити функцію, яка за номером місяця повертає його назву.
+        </h2>
+      </div>
+
+      <script>
+        function getMonthName(monthNumber) {
+          let monthName;
+
+          switch (monthNumber) {
+            case 1:
+              monthName = "Січень";
+              break;
+            case 2:
+              monthName = "Лютий";
+              break;
+            case 3:
+              monthName = "Березень";
+              break;
+            case 4:
+              monthName = "Квітень";
+              break;
+            case 5:
+              monthName = "Травень";
+              break;
+            case 6:
+              monthName = "Червень";
+              break;
+            case 7:
+              monthName = "Липень";
+              break;
+            case 8:
+              monthName = "Серпень";
+              break;
+            case 9:
+              monthName = "Вересень";
+              break;
+            case 10:
+              monthName = "Жовтень";
+              break;
+            case 11:
+              monthName = "Листопад";
+              break;
+            case 12:
+              monthName = "Грудень";
+              break;
+            default:
+              monthName = "Номер місяця може бути від 1 до 12.";
+              break;
+          }
+          return monthName;
+        }
+
+        const userMonthNumber = parseInt(
+          prompt(
+            "Введіть номер місяця для якого ви хотіли б визначити назву",
+            ""
+          )
+        );
+
+        const monthName = getMonthName(userMonthNumber);
+
+        document.write(monthName);
+      </script>
+    </main>
+  </body>
+</html>

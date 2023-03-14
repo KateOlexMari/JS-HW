@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__5</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 5.</h1>
+        <h2 class="task__description">
+          Створити окремі функції, які переводять:<br />
+          Сантиметри у дюйми;<br />
+          Кілограми у фунти;<br />
+          Кілометри у милі.<br />
+        </h2>
+      </div>
+
+      <script>
+        let userNumberCentimeter = parseFloat(
+          prompt(`Введіть відстань у сантиметрах`)
+        );
+        let userNumberKilos = parseFloat(
+          prompt(`Введіть кількість у кілограмах`)
+        );
+        let userNumberKilometers = parseFloat(
+          prompt(`Введіть відстань у километрах`)
+        );
+
+        function centimeterToInch(a) {
+          return a / 2.54;
+        }
+        function kilosToPound(a) {
+          return a * 2.20462;
+        }
+        function kilometersToMiles(a) {
+          return a * 0.621371;
+        }
+
+        let resultInchs = centimeterToInch(userNumberCentimeter);
+        let resultPounds = kilosToPound(userNumberKilos);
+        let resultMiles = kilometersToMiles(userNumberKilometers);
+
+        document.write(
+          `${userNumberCentimeter} см равно ${resultInchs.toFixed(
+            1
+          )} дюймов<br> ${userNumberKilos} кг равно ${resultPounds.toFixed(
+            1
+          )} фунтов<br>${userNumberKilometers} км равно ${resultMiles.toFixed(
+            1
+          )} миль`
+        );
+      </script>
+    </main>
+  </body>
+</html>

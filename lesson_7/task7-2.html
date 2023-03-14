@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>Task__2</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 2.</h1>
+        <h2 class="task__description">
+          Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день
+          робочим.
+        </h2>
+      </div>
+
+      <script>
+        function getWorkingDay(dayNumber) {
+          return dayNumber >= 1 && dayNumber <= 5;
+        }
+
+        const userDayNumber = parseInt(
+          prompt(
+            "Введіть номер дня від 1-7 щоб визначити чи є він робочим чи вихідним",
+            ""
+          )
+        );
+
+        const dayStatus = getWorkingDay(userDayNumber)
+          ? "Це будній день."
+          : "Це вихідний день.";
+
+        document.write(dayStatus);
+      </script>
+    </main>
+  </body>
+</html>
