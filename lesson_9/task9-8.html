@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>task__8</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 8.</h1>
+        <h2 class="task__description">
+          Дано масив номерів авто. Сформувати новий масив тих, які починаються
+          на «А»
+        </h2>
+      </div>
+
+      <script>
+        let carNumbers = [
+          "KY84543FT",
+          "AS167676PT",
+          "VA23455OP",
+          "AE4663KJ",
+          "AQ541234FT",
+        ];
+
+        document.write(`Дано масив номерів авто: [${carNumbers}]<br>`);
+        const firstLetterACarNumbers = carNumbers.filter(
+          (element) => element[0] === "A"
+        );
+
+        function filter(arr) {
+          return arr.filter((element) => element[0] === `A`);
+        }
+        document.write(filter(carNumbers));
+      </script>
+    </main>
+  </body>
+</html>

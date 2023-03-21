@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>task__9</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 9.</h1>
+        <h2 class="task__description">
+          Дано масив імен. Сформувати масив з перших літер цих імен.
+        </h2>
+      </div>
+
+      <script>
+        const peopleNames = ["Антон", "Мирон", "Ірина", "Дарина"];
+        document.write(`Дано масив імен: [${peopleNames}] <br>`);
+        peopleNamesFirstLatter = peopleNames.map((element) => element[0]);
+        document.write(
+          `Масив з перших літер цих імен: [${peopleNamesFirstLatter}]`
+        );
+      </script>
+    </main>
+  </body>
+</html>
