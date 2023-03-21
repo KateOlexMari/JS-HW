@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>task__9</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 9.</h1>
+        <h2 class="task__description">
+          Морський бій. Користувач вводить кількість клітинок одновимірного
+          масиву та кількість одиночних кораблів. Комп’ютер довільно розміщує ці
+          одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то
+          клітинка пуста, якщо 1 – то це означає, що там є корабель. Користувач
+          вводить номер клітинки, куди стріляє. Гра продовжується до тих пір,
+          поки не будуть потоплені усі кораблі.
+        </h2>
+      </div>
+
+      <script>
+        function arrayInput(elementsNumber) {
+          let arr = [];
+          for (let i = 0; i < elementsNumber; i++) {
+            const cell = 0;
+            arr.push(cell);
+          }
+          return arr;
+        }
+        function arrayShipsIndex(shipsQuantity, fieldSize) {
+          let arr = [];
+          for (let ships = 0; ships < shipsQuantity; ships++) {
+            const shipRandomIndex = Math.floor(Math.random() * fieldSize);
+            if (arr.includes(shipRandomIndex)) ships--;
+            else arr.push(shipRandomIndex);
+          }
+          return arr;
+        }
+        function inputShipNumbersToArray(startField, shipsIndex) {
+          for (let i = 0; i < shipsIndex.length; i++) {
+            startField[shipsIndex[i]] = 1;
+          }
+        }
+        function seaFightGame(fieldSize, shipsQuantity, fieldWithShips) {
+          let userShot;
+          for (let shot = 0; shot < shipsQuantity; shot++) {
+            userShot = parseInt(
+              prompt(`Ваш постріл спрямований у одну з  ${fieldSize} комірок`)
+            );
+            if (fieldWithShips[userShot - 1] === 1) {
+              alert(`Ви потопили корабель!  `);
+            } else {
+              alert("Не влучили!");
+              shot--;
+            }
+          }
+          document.write("Ви влучили у всі кораблі! ");
+        }
+
+        const fieldSize = parseInt(
+          prompt("Введіть кількість клітинок поля бою:")
+        );
+        const gameField = arrayInput(fieldSize);
+        const shipsQuantity = parseInt(
+          prompt("Введіть кількість однопалубних кораблів:")
+        );
+        const shipsIndex = arrayShipsIndex(shipsQuantity, fieldSize);
+        inputShipNumbersToArray(gameField, shipsIndex);
+        seaFightGame(fieldSize, shipsQuantity, gameField);
+      </script>
+    </main>
+  </body>
+</html>

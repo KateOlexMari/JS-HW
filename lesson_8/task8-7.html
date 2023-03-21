@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>task__7</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 7.</h1>
+        <h2 class="task__description">
+          Дано послідовність платіжок протягом року. Знайти сумарну кількість
+          грошей за:<br />
+          за весь рік;<br />
+          у першій половині року;<br />
+          у другій половині року;<br />
+          за літо;<br />
+          за ІІ квартал;<br />
+          за парні місяці (з парними номерами);<br />
+          за місяці, які є початковими у сезоні (весна, літо, осінь, зима).<br />
+        </h2>
+      </div>
+
+      <script>
+        let payment;
+        const paymentList = [];
+
+        for (let i = 1; i <= 12; i++) {
+          payment = parseFloat(
+            prompt(`Введіть будь ласка суму по платіжці за ${i} місяць .`, "")
+          );
+          if (isFinite(payment)) paymentList.push(payment);
+          else i--;
+        }
+
+        function getPaymentForPeriod(paymentList, startPeriod, endPeriod) {
+          let totalMoney = 0;
+
+          for (let i = startPeriod - 1; i < endPeriod; i++) {
+            totalMoney += paymentList[i];
+          }
+
+          return totalMoney;
+        }
+
+        function getPaymentForEvenMonth(paymentList) {
+          let totalMoney = 0;
+
+          for (let i = 0; i < paymentList.length; i++) {
+            if ((i + 1) % 2 === 0) totalMoney += paymentList[i];
+          }
+
+          return totalMoney;
+        }
+
+        function getPaymentForSeasonStart(paymentList) {
+          let totalMoney = 0;
+
+          for (let i = 0; i < paymentList.length; i++) {
+            if ((i + 1) % 3 === 0) totalMoney += paymentList[i];
+          }
+
+          return totalMoney;
+        }
+
+        const paymentForYear = getPaymentForPeriod(paymentList, 1, 12);
+        const paymentForFirstHalfYear = getPaymentForPeriod(paymentList, 1, 6);
+        const paymentForLasttHalfYear = getPaymentForPeriod(paymentList, 7, 12);
+        const paymentForSummer = getPaymentForPeriod(paymentList, 6, 8);
+        const paymentForSecondQuarter = getPaymentForPeriod(paymentList, 4, 6);
+        const paymentForEvenMonth = getPaymentForEvenMonth(paymentList);
+        const paymentForSeasonStart = getPaymentForSeasonStart(paymentList);
+
+        document.write(`
+    Cумарнa кількість грошей за весь рік ${paymentForYear}</br>
+    Cумарнa кількість грошей за першу половину року ${paymentForFirstHalfYear}</br>
+    Cумарнa кількість грошей за другу половину року ${paymentForLasttHalfYear}</br>
+    Cумарнa кількість грошей за літо ${paymentForSummer}</br>
+    Cумарнa кількість грошей за ІІ квартал ${paymentForSecondQuarter}</br>
+    Cумарнa кількість грошей за парні місяці (з парними номерами) ${paymentForEvenMonth}</br>
+    Cумарнa кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима) ${paymentForSeasonStart}.
+`);
+      </script>
+    </main>
+  </body>
+</html>

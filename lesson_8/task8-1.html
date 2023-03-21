@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>task__1</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 1.</h1>
+        <h2 class="task__description">
+          Дано масив, який містить оцінки з К предметів. Знайти середній бал і
+          з’ясувати до якої категорії він відноситься (відмінник, двійочник (має
+          хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є
+          хоча би одна трійка)).
+        </h2>
+      </div>
+
+      <script>
+        function getRandomNum(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function getGradesArr(gradesNumber) {
+          let grades = [];
+          for (let i = 0; i < gradesNumber; i++) {
+            grades[i] = getRandomNum(2, 5);
+          }
+          return grades;
+        }
+
+        function getGradesAvg(grades) {
+          let gradesSum = 0;
+          for (let i = 0; i < grades.length; i++) {
+            gradesSum += grades[i];
+          }
+          return gradesSum / grades.length;
+        }
+
+        function checkStudentStatus(grades) {
+          let minGrade = +Infinity;
+          let status;
+
+          for (let i = 0; i < grades.length; i++) {
+            if (grades[i] < minGrade) minGrade = grades[i];
+          }
+
+          if (minGrade === 2) status = "двієчник(ця)";
+          else if (minGrade === 3) status = "трієчник(ця)";
+          else if (minGrade === 4) status = "хорошист(ка)";
+          else status = "відмінник(ця)";
+
+          return status;
+        }
+
+        const gradesNumber = parseInt(
+          prompt("Введіть кількість оцінок студента", "10")
+        );
+        const studentsGrades = getGradesArr(gradesNumber);
+        const studentsGradesAvg = getGradesAvg(studentsGrades);
+        const studentPerf = checkStudentStatus(studentsGrades);
+
+        document.write(`Оцінки студента(ки):${studentsGrades}<br>`);
+        document.write(
+          `Середня оцінка студента(ки): ${studentsGradesAvg.toFixed(1)}<br>`
+        );
+        document.write(`Студент(ка) "${studentPerf}"`);
+      </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>task__4</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 4.</h1>
+        <h2 class="task__description">
+          Дано послідовність номерів автомобілів. Підрахувати кількість номерів,
+          які : <br />
+          • починаються на букву «А»; <br />
+          • перша і остання літери співпадають; <br />
+          • складаються з більше ніш 5 символів; <br />
+        </h2>
+      </div>
+
+      <script>
+        function getNumberWithFirstLetter(registrationNumberPlates, letter) {
+          let firstANumber = 0;
+          for (let i = 0; i < registrationNumberPlates.length; i++) {
+            if (registrationNumberPlates[i][0] === letter) firstANumber++;
+          }
+          return firstANumber;
+        }
+
+        function getNumberWhenFirstAndLastAreEqual(registrationNumberPlates) {
+          let equalNumber = 0;
+          for (let i = 0; i < registrationNumberPlates.length; i++) {
+            if (
+              registrationNumberPlates[i][0] ===
+              registrationNumberPlates[i].at(-1)
+            )
+              equalNumber++;
+          }
+          return equalNumber;
+        }
+
+        function getNumberWhenLengthMore5(registrationNumberPlates) {
+          let lengthNumber = 0;
+          for (let i = 0; i < registrationNumberPlates.length; i++) {
+            if (registrationNumberPlates[i].length > 5) lengthNumber++;
+          }
+          return lengthNumber;
+        }
+
+        const vehicleRegPlates = [
+          "AH2455AA",
+          "RE1911YY",
+          "AA2385ZA",
+          "AT456QT",
+          "21QQ4",
+          "AA1FF2TP",
+          "L5612WE",
+          "AH0880",
+        ];
+        const firstLetterNumber = getNumberWithFirstLetter(
+          vehicleRegPlates,
+          "A"
+        );
+        const firstAndLastEqual =
+          getNumberWhenFirstAndLastAreEqual(vehicleRegPlates);
+        const lengthMoreThen5 = getNumberWhenLengthMore5(vehicleRegPlates);
+
+        document.write(
+          `Кількість номерів, які:<br>- починаються на літеру 'А': ${firstLetterNumber}<br>`
+        );
+        document.write(
+          `- перша і остання літери збігаються: ${firstAndLastEqual}<br>`
+        );
+        document.write(
+          `- складаються з більше ніш 5 символів: ${lengthMoreThen5}`
+        );
+      </script>
+    </main>
+  </body>
+</html>

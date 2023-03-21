@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+
+    <title>task__2</title>
+  </head>
+
+  <body>
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">Задача 2.</h1>
+        <h2 class="task__description">
+          Дано масив, який зберігає кількість відвідувачів магазину протягом
+          тижня. Вивести на екран:<br />
+          1. номери днів, протягом яких кількість відвідувачів була меншою за
+          20; <br />
+          2. номери днів, коли кількість відвідувачів була мінімальною;<br />
+          3. номери днів, коли кількість відвідувачів була мінімальною;<br />
+          4. загальну кількість клієнтів у робочі дні та окремо загальну
+          кількість днів на вихідних.<br />
+        </h2>
+      </div>
+
+      <script>
+        function getRandomNum(min = 15, max = 50) {
+          return min + Math.floor(Math.random() * (max - min + 1));
+        }
+
+        function getWeeklyVisiting() {
+          let week = [];
+          for (let i = 0; i < 7; i++) {
+            week[i] = getRandomNum(10, 100);
+          }
+          return week;
+        }
+
+        function getDaysWhenVisitorsLess20(weeklyVisiting) {
+          let days = [];
+          for (let i = 0; i < weeklyVisiting.length; i++) {
+            if (weeklyVisiting[i] < 20) days.push(i + 1);
+          }
+          return days;
+        }
+
+        function getDaysWhenMinOrMaxVisitors(weeklyVisiting, maxOrMin) {
+          let days = [],
+            visitors;
+          if (maxOrMin === "min") visitors = Math.min(...weeklyVisiting);
+          if (maxOrMin === "max") visitors = Math.max(...weeklyVisiting);
+
+          for (let i = 0; i < weeklyVisiting.length; i++) {
+            if (weeklyVisiting[i] === visitors) days.push(i + 1);
+          }
+
+          return days;
+        }
+
+        function getVisitorsNumberOnWorkdaysOrWeekends(
+          weeklyVisiting,
+          workdaysOrWeekends
+        ) {
+          let totalVisitors = 0;
+          let start = 0,
+            end = weeklyVisiting.length;
+          if (workdaysOrWeekends === "workdays")
+            end = weeklyVisiting.length - 2;
+          if (workdaysOrWeekends === "weekends")
+            start = weeklyVisiting.length - 2;
+
+          for (let i = start; i < end; i++) {
+            totalVisitors += weeklyVisiting[i];
+          }
+
+          return totalVisitors;
+        }
+
+        const weeklyVisiting = getWeeklyVisiting();
+        let lessThen20Days = getDaysWhenVisitorsLess20(weeklyVisiting);
+        const minVisitors = getDaysWhenMinOrMaxVisitors(weeklyVisiting, "min");
+        const maxVisitors = getDaysWhenMinOrMaxVisitors(weeklyVisiting, "max");
+        const visitorsOnWorkdays = getVisitorsNumberOnWorkdaysOrWeekends(
+          weeklyVisiting,
+          "workdays"
+        );
+        const visitorsOnWeekends = getVisitorsNumberOnWorkdaysOrWeekends(
+          weeklyVisiting,
+          "weekends"
+        );
+
+        if (!lessThen20Days.length) lessThen20Days = "Немає таких днів";
+
+        document.write(
+          `Кількість відвідувачів впродовж тижня: ${weeklyVisiting}<br>`
+        );
+        document.write(
+          `Номери днів, коли відвідувачів було менше 20: ${lessThen20Days}<br>`
+        );
+        document.write(
+          `Номери днів з мінімальною кількістю відвідувачів: ${minVisitors}<br>`
+        );
+        document.write(
+          `Номери днів з максимальною кількістю відвідувачів: ${maxVisitors}<br>`
+        );
+        document.write(
+          `Загальна кількість відвідувачів:<br>у робочі дні = ${visitorsOnWorkdays};<br> у вихідні = ${visitorsOnWeekends}`
+        );
+      </script>
+    </main>
+  </body>
+</html>
