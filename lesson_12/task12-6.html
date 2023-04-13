@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+	 <link rel="stylesheet" href="css/stylepages.css" />
+
+    <title>task</title>
+  </head>
+
+  <body>
+
+	 <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__text">Задачa 6.</div>
+        </div>
+      </header>
+
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">
+        Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
+        </h1>
+        <h2 class="task__description">
+         
+        </h2>
+      </div>
+
+      <h1 class="task__nummer">Розв'язок.</h1>
+
+      <script>
+
+						let arrNames=['Guus', 'Eva', 'Tetyana', 'Kateryna','Mikael', 'Rous', 'Paula']
+					document.write(`Даний масив: ${arrNames}<br>`)
+					function getSortNames(arr) {
+						let change
+						do {
+							change=false
+							for (let i = 1; i < arr.length; i++) {
+								if (arr[i-1].length>arr[i].length) {
+									let temp=arr[i-1]
+									arr[i-1]=arr[i]
+									arr[i]=temp
+									change=true
+								}
+							}
+						} while (change);
+						return arr
+					}
+					getSortNames(arrNames)
+					document.write(`Відсортований масив: ${arrNames}<br>`)
+					function include_5_symbols(arr,qtySymb) {
+						let start=0
+						let end=arr.length-1
+						while (start<=end) {
+							const middle=Math.floor((start+end)/2)
+							if (arr[middle].length===qtySymb) return middle
+							if (arr[middle].length<qtySymb) start=middle+1
+							if (arr[middle].length>qtySymb) end=middle-1
+						}
+						return -1
+					}
+					const qtySymbol_5=include_5_symbols(arrNames,5)
+					if (qtySymbol_5!==-1) {
+						document.write(`Ім"я довжиною 5 символів ${arrNames[qtySymbol_5]} у масиві знаходиться під індексом ${qtySymbol_5}<br>`)
+					} else {
+						document.write('У масиві відсутне ім"я довжиною 5 символів.')
+					}
+					
+      </script>
+    </main>
+  </body>
+</html>
+
+
+		

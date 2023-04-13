@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+	 <link rel="stylesheet" href="css/stylepages.css" />
+
+    <title>task</title>
+  </head>
+
+  <body>
+
+	 <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__text">Задачa 3.</div>
+        </div>
+      </header>
+
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">
+        Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування включеннями.
+        </h1>
+        <h2 class="task__description">
+         
+        </h2>
+      </div>
+
+      <h1 class="task__nummer">Розв'язок.</h1>
+
+      <script>
+
+			// генеруємо рандомне число 
+			function getRandomNum(minValue, maxValue) {
+				return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+			}
+			// генеруємо масив з цих рандомних чисел
+				function getRandomArray(elementQuontity, minValue, maxValue) {
+				const arr = []
+				for (let i = 0; i < elementQuontity; i++) {
+					const randNum = getRandomNum(minValue, maxValue)
+					arr.push(randNum)
+				}
+				return arr
+			}
+			// виводимо сгенерований масив 
+			const array =  getRandomArray(20, 1, 500)
+			document.write(`Сгенерований масив: [${array}]<br><br>`)
+
+			function getSortArrayByInsertMethod(array){
+				let counter = 0
+				for (let k = 1; k < array.length; k++) {
+					let currentElement = array[k]
+					let i = k - 1
+					while (i >=0 && array[i] > currentElement){
+						array[i + 1] = array[i]
+						i = i - 1
+						counter++
+					}
+					array[i + 1] = currentElement
+				}
+				return counter
+			}
+
+			const sortArrayByInsertMethod = getSortArrayByInsertMethod(array)
+			document.write(`Відсортований масив методом включення: [${array}]<br><br>`)
+			document.write(`Кількість обмінів під час сортування методом включення: [${sortArrayByInsertMethod}]<br><br>`)
+
+					
+		  
+      </script>
+    </main>
+  </body>
+</html>
