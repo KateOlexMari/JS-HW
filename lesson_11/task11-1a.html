@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+	 <link rel="stylesheet" href="css/stylepages.css" />
+
+    <title>task__1</title>
+  </head>
+
+  <body>
+
+	 <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__text">Задачa 1.</div>
+        </div>
+      </header>
+
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">
+         Знайти суми елементів у вказаній області:
+        </h1>
+        <h2 class="task__description">
+         <ol>
+				<li>1.
+					<img src="./img/array_top_left.png" alt="Array top left" height="100px"> 
+				</li>
+				<li>2.
+					<img src="./img/array_top_right.png" alt="Array top right" height="100px">
+				</li>
+				<li>3.
+					<img src="./img/array_bottom_left.png" alt="Array botton left" height="100px">
+				</li>
+				<li>4.
+					<img src="./img/array_bottom_right.png" alt="Array botton right" height="100px">
+				</li>
+				<li>5. Суму парних рядків</li>
+				<li>6. Суму непарних стовпців</li>
+				<li>7. У парних рядках – непарні стовпці, у непарних – парні.</li>
+			</ol>
+        </h2>
+      </div>
+
+      <h1 class="task__nummer">Розв'язок.</h1>
+
+      <script>
+       
+		   // Створення рандомного числа
+			function getRandNum(min, max) {
+				return min + Math.floor(Math.random() * (max - min + 1))
+			}
+
+			// Створення рандомного одновимірного масиву
+			function getRandArr(arrSize, min, max) {
+				let arr = []
+				for (let j = 0; j < arrSize; j++) {
+					const rand = getRandNum(min, max)
+					arr.push(rand)
+				}
+				return arr
+			}
+
+			// Створення рандомного двовимірного масиву
+			function getRandTableArr(rowsSize, colsSize, min, max) {
+				let table = []
+				for (let i = 0; i < rowsSize; i++) {
+					const rand = getRandArr(colsSize, min, max)
+					table.push(rand)
+				}
+				return table
+			}
+
+			// Задача 1-4 
+			function sumOfQuarter(arr, sumRowsFrom, sumRowsTo, sumColsFrom, sumColsTo) {
+				let sum = 0
+				for (let i = sumRowsFrom; i < sumRowsTo; i++) {
+					for (let j = sumColsFrom; j < sumColsTo; j++) {
+					sum += arr[i][j]
+					}
+				}
+				return sum
+			}
+
+			const table = getRandTableArr(4, 4, 1, 9) // матриця 4 х 4, числа 1-9
+			const startRows = 0
+			const startCols = 0
+			const halfRows = Math.ceil(table.length / 2)
+			const halfCols = Math.ceil(table[0].length / 2)
+			const endRows = table.length
+			const endCols = table[0].length
+
+			document.write(`Рандомна таблиця для розрахунку:<br>${table.join('<br>')}<br><br>`)
+
+			// 1  СУМА ЕЛЕМЕНТІВ У ВКАЗАНІЙ ОБЛАСТІ - верхня ліва чверть
+			const sumTopLeft = sumOfQuarter(table, startRows, halfRows, startCols, halfCols)
+
+			// 2 СУМА ЕЛЕМЕНТІВ У ВКАЗАНІЙ ОБЛАСТІ -  верхня права чверть
+			const sumTopRight = sumOfQuarter(table, startRows, halfRows, halfCols, endCols)
+
+			// 3 СУМА ЕЛЕМЕНТІВ У ВКАЗАНІЙ ОБЛАСТІ -  нижня ліва чверть
+			const sumBottomLeft = sumOfQuarter(table, halfRows, endRows, startCols, halfCols)
+
+			// 4 СУМА ЕЛЕМЕНТІВ У ВКАЗАНІЙ ОБЛАСТІ -  права ліва чверть
+			const sumBottomRight = sumOfQuarter(table, halfRows, endRows, halfCols, endCols)
+
+
+
+			// 5  СУМА ПАРНИХ РЯДКІВ 
+			let sumEvenRows = 0
+			for (let i = 0; i < endRows; i += 2) {
+				for (let j = 0; j < endCols; j++) {
+					sumEvenRows += table[i][j]
+				}
+			}
+			// 6  СУМА НЕПАРНИХ СТОВПЦІВ 
+			let sumOddCols = 0
+			for (let i = 0; i < endRows; i++) {
+				for (let j = 1; j < endCols; j += 2) {
+					sumOddCols += table[i][j]
+				}
+			}
+			// 7  У ПАРНИХ РЯДКАХ – НЕПАРНІ СТОВПЦІ, У НЕПАРНИХ – ПАРНІ 
+			let sum = 0
+			for (let i = 0; i < endRows; i++) {
+				for (let j = (1 - i % 2); j < endCols; j += 2) {
+					sum += table[i][j]
+				}
+			}
+
+			document.write(`1. Сума верхньої лівої чверті: ${sumTopLeft}<br>`)
+			document.write(`2. Сума верхньої правої чверті: ${sumTopRight}<br>`)
+			document.write(`3. Сума нижньої лівої чверті: ${sumBottomLeft}<br>`)
+			document.write(`4. Сума нижньої правої чверті: ${sumBottomRight}<br>`)
+			document.write(`5. Сума парних рядків: ${sumEvenRows}<br>`)
+			document.write(`6. Сума непарних стовпців: ${sumOddCols}<br>`)
+			document.write(`7. У парних рядках – непарні стовпці, у непарних – парні: ${sum}<br>`)
+					
+				
+      </script>
+    </main>
+  </body>
+</html>
