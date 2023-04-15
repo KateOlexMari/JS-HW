@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+	 <link rel="stylesheet" href="css/stylepages.css" />
+
+    <title>task</title>
+  </head>
+
+  <body>
+
+	 <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__text">Задачa 4.</div>
+        </div>
+      </header>
+
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">
+        З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по одну букву наперед заданого слова. З використанням нього розробити гру «Прекладач». Виводимо для користувача опис цього слова і по одну букву користувач вводить переклад цього слова. Підрахувати кількість вгаданих букв. 
+        </h1>
+        <h2 class="task__description">
+         
+        </h2>
+      </div>
+
+      <h1 class="task__nummer">Розв'язок.</h1>
+
+      <script>
+		  
+			function getWordByLetter(guessWord) {
+				let counter = 0
+				function getOneLetter() {
+				if (counter === guessWord.length) counter = 0
+				return guessWord[counter++]
+				}
+				return getOneLetter
+			}
+			const guessWord = 'Говерла'
+			const letterSearch = getWordByLetter(guessWord)
+
+			function getCountingOfGuessedLetters(letter, guessWord) {
+				let guessedLetter = 0
+				for (let i = 1; i <= guessWord.length; i++) {
+				const enterUserLetter = prompt(`Вам потрібно по буквах вгадати назву найвищої вершини України? Введіть ${i} букву.`)
+				if (letter() === enterUserLetter) guessedLetter++
+				}
+				return guessedLetter
+			}
+			const сountingOfGuessedLetters = getCountingOfGuessedLetters(letterSearch, guessWord)
+			document.write(`<p>Вірна відповідь: <span>${guessWord}</span></p>`)
+			document.write(`<p>Вірно введених букв: <span>${сountingOfGuessedLetters}</span></p>`)
+		
+      </script>
+    </main>
+  </body>
+</html>

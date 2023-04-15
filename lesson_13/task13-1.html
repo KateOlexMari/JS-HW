@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+	 <link rel="stylesheet" href="css/stylepages.css" />
+
+    <title>task</title>
+  </head>
+
+  <body>
+
+	 <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__text">Задачa 1.</div>
+        </div>
+      </header>
+
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">
+         Нехай X_0 = 1, X_i = X_i-1+2i  де i=1,2... Визначити X_10. Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів
+        </h1>
+        <h2 class="task__description">
+         
+        </h2>
+      </div>
+
+      <h1 class="task__nummer">Розв'язок.</h1>
+
+      <script>
+		  
+      // Нрекурсивний алгоритм
+      function getX_10(number) {
+        if (number == 0) return 1;
+        else {
+          let x_0 = 1;
+          let sum;
+          for (let i = 1; i <= number; i++) {
+            sum = x_0 + 2 * [i];
+            x_0 = sum;
+          }
+          return sum;
+        }
+      }
+      let x_10 = getX_10(10);
+      document.write(
+        `<h2> Розв'язок з нерекурсивним алгоритмом, X_10 дорівнює: ${x_10} </h2> `
+      );
+
+
+
+      // Рекурсивний алгоритм
+      function getRekursMetodX_10(number) {
+        if (number === 0) return 1;
+        else return getRekursMetodX_10(number - 1) + 2 * number;
+      }
+      let rekursX_10 = getRekursMetodX_10(10);
+      document.write(
+        `<h2> Розв'язок з рекурсивним алгоритмом, X_10 дорівнює: ${rekursX_10} </h2> `
+      );
+					
+      </script>
+    </main>
+  </body>
+</html>

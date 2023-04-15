@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styletask.css" />
+	 <link rel="stylesheet" href="css/stylepages.css" />
+
+    <title>task</title>
+  </head>
+
+  <body>
+
+	 <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__text">Задачa 3.</div>
+        </div>
+      </header>
+
+    <main class="task">
+      <div class="info">
+        <h1 class="task__nummer">
+        З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по одне значення від заданого мінімального до заданого максимального. Якщо значення досягне максимального, то наступним буде мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.
+        </h1>
+        <h2 class="task__description">
+         
+        </h2>
+      </div>
+
+      <h1 class="task__nummer">Розв'язок.</h1>
+
+      <script>
+		  
+
+					
+				function getIterator(minValue, maxValue) {
+					let currentValue = minValue
+					
+					function iterator() {
+						if (currentValue > maxValue) currentValue = minValue
+						return currentValue++
+						
+					}
+					return iterator
+				}
+
+				let mounth = getIterator(1, 12)
+
+				const numberIteration = 20
+				for (let i = 0; i < numberIteration; i++) {
+					document.write(`${mounth()}<br>`)
+				}
+
+	
+		
+					
+      </script>
+    </main>
+  </body>
+</html>
